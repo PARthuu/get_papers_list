@@ -3,7 +3,7 @@ from typing import List, Dict, Optional
 
 def save_to_csv(papers: List[Dict], filename: Optional[str]) -> None:
     """Save the list of papers to a CSV file or print to console."""
-    fields = ["PubmedID", "Title", "Publication Date", "Non-academic Authors", "Company Affiliations"]
+    fields = ["PubmedID", "Title", "Publication Date", "Non-academic Authors", "Company Affiliations", "Corresponding Author Email"]
     
     if not papers:
         print("No papers found matching criteria.")
