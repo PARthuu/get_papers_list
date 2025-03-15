@@ -8,12 +8,10 @@ def identify_non_academic_authors(papers: List[Dict]) -> List[Dict]:
     filtered_papers = []
     
     for paper in papers:
-        # print(paper)
         non_academic_authors = []
         company_affiliations = []
         
         for author in paper["Authors"]:
-            # print(author)
             affiliation = author[1].lower()
             if any(keyword in affiliation for keyword in COMPANY_KEYWORDS) and not any(n_keyword in affiliation for n_keyword in ACADEMIC_KEYWORDS):
                 non_academic_authors.append(author[0])

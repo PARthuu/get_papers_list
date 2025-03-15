@@ -9,7 +9,6 @@ def save_to_csv(papers: List[Dict], filename: Optional[str]) -> None:
         print("No papers found matching criteria.")
         return
 
-    # print(papers[0])
     if filename:
         with open(filename, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=fields)

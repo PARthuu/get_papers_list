@@ -35,8 +35,7 @@ def fetch_paper_details(paper_ids: List[str]) -> List[Dict]:
     }
     response = requests.get(DETAILS_URL, params=params)
     response.raise_for_status()
-    
-    print(response.content.decode("utf-8"))
+
     data = ET.fromstring(response.content)
 
     papers = []
@@ -51,22 +50,24 @@ def fetch_paper_details(paper_ids: List[str]) -> List[Dict]:
         date = year + '-' + month + '-' + day
 
         authors = []
-        for author_info in articles.find('MedlineCitation').find('Article').find('AuthorList').findall('Author'):
-            try:
+        try:
+            for author_info in articles.find('MedlineCitation').find('Article').find('AuthorList').findall('Author'):
                 f_name = author_info.find('ForeName').text
                 l_name = author_info.find('LastName').text
-            except AttributeError:
-                continue
 
-            affiliations = " | ".join(a.find('Affiliation').text.replace(", ", "  ")[:-1] for a in author_info.findall('AffiliationInfo'))
-            
-            authors.append([f_name + ' ' + l_name, affiliations])
 
-        papers.append({
-            "PubmedID": pmid,
-            "Title": title,
-            "Publication Date": date,
-            "Authors": authors,
-        })
-        
+                affiliations = " | ".join(a.find('Affiliation').text.replace(", ", "  ")[:-1] for a in author_info.findall('AffiliationInfo'))
+                
+                authors.append([f_name + ' ' + l_name, affiliations])
+
+            papers.append({
+                "PubmedID": pmid,
+                "Title": title,
+                "Publication Date": date,
+                "Authors": authors,
+            })
+
+        except AttributeError as e:
+            continue
+
     return papers

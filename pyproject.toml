@@ -1,5 +1,5 @@
 [project]
-name = "test-fetcher"
+name = "get_papers_list"
 version = "0.1.0"
 description = ""
 authors = [
@@ -9,7 +9,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "requests (>=2.32.3,<3.0.0)",
-    "pandas (>=2.2.3,<3.0.0)",
     "argparse (>=1.4.0,<2.0.0)",
     "pytest (>=8.3.5,<9.0.0)"
 ]
