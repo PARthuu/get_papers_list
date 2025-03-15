@@ -27,27 +27,25 @@ cd get_papers_list
 poetry install
 ```
 
-4. Run the following command to use the tool.
+4. Run the following command to get started.
 
 ```
-poetry run python get_papers_list.py
+poetry run python get_papers_list.py -h
 ```
 
 ## Usage
 
-Run `poetry run python get_papers_list.py -h` or `poetry run python get_papers_list.py --help` to get usage information.
+Positional arguments:
+`"query"`
+Search your "query" from PubMed.
 
-> usage: get_papers_list.py [-h] [-f FILE] [-d] query
->
-> Fetch research papers from PubMed with non-academic authors.
->
-> positional arguments:
-> query Search query for PubMed.
->
-> options:
-> -h, --help show this help message and exit
-> -f, --file FILE Save results to a CSV file.
-> -d, --debug Enable debug mode.
+Options:
+show this help message and exit
+`-h, --help`
+FILE Save results to a CSV file.
+`-f, --file`
+Enable debug mode.
+`-d, --debug`
 
 ### Examples:
 
@@ -65,5 +63,5 @@ Above command will create a CSV file named `output.csv` as the output.
 
 ## Constraints
 
-- _Pubmed_ allow only 3 requests per second without using API. As, there was no mention about the minimum requirement for the task, I went with the simplest solution.
+- _Pubmed_ allow only 3 requests per second without using signing in. As, there was no mention about the minimum requirement for the task, I went with the most simple solution.
 - Execution requirement stated that _"Provide an executable command named get-papers-list via Poetry"_. Using this tool as `poetry run python get_papers_list.py` is what I came up with based on that.
