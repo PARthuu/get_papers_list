@@ -9,7 +9,7 @@ EMAIL = "your_email@example.com"  # Required for PubMed API compliance
 
 logging.basicConfig(level=logging.INFO)
 
-def fetch_paper_ids(query: str, max_results: int = 50) -> List[str]:
+def fetch_paper_ids(query: str, max_results: int = 160) -> List[str]:
     """Fetch paper IDs from PubMed based on a query."""
 
     params = {
@@ -36,6 +36,7 @@ def fetch_paper_details(paper_ids: List[str]) -> List[Dict]:
     response = requests.get(DETAILS_URL, params=params)
     response.raise_for_status()
     
+    print(response.content.decode("utf-8"))
     data = ET.fromstring(response.content)
 
     papers = []

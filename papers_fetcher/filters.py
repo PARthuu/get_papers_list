@@ -8,6 +8,7 @@ def identify_non_academic_authors(papers: List[Dict]) -> List[Dict]:
     filtered_papers = []
     
     for paper in papers:
+        # print(paper)
         non_academic_authors = []
         company_affiliations = []
         
