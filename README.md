@@ -36,16 +36,12 @@ poetry run python get_papers_list.py -h
 ## Usage
 
 Positional arguments:
-`"query"`
-Search your "query" from PubMed.
+- Search your `"query"` from PubMed.
 
 Options:
-show this help message and exit
-`-h, --help`
-FILE Save results to a CSV file.
-`-f, --file`
-Enable debug mode.
-`-d, --debug`
+- show this help message and exit. `-h, --help`
+- FILE Save results to a CSV file. `-f, --file`
+- Enable debug mode. `-d, --debug`
 
 ### Examples:
 
