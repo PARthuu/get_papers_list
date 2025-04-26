@@ -36,9 +36,11 @@ poetry run python get_papers_list.py -h
 ## Usage
 
 Positional arguments:
+
 - Search your `"query"` from PubMed.
 
 Options:
+
 - show this help message and exit. `-h, --help`
 - FILE Save results to a CSV file. `-f, --file`
 - Enable debug mode. `-d, --debug`
@@ -60,4 +62,3 @@ Above command will create a CSV file named `output.csv` as the output.
 ## Constraints
 
 - _Pubmed_ allow only 3 requests per second without using signing in. As, there was no mention about the minimum requirement for the task, I went with the most simple solution.
-- Execution requirement stated that _"Provide an executable command named get-papers-list via Poetry"_. Using this tool as `poetry run python get_papers_list.py` is what I came up with based on that.
